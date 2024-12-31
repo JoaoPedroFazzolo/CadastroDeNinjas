@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,9 +10,11 @@ import java.util.List;
 @RequestMapping("/ninjas")
 public class NinjaController {
 
+    private final DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration;
     private NinjaService ninjaService;
-    public NinjaController(NinjaService ninjaService) {
+    public NinjaController(NinjaService ninjaService, DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration) {
         this.ninjaService = ninjaService;
+        this.dataSourceTransactionManagerAutoConfiguration = dataSourceTransactionManagerAutoConfiguration;
     }
 
     @GetMapping("/boasvindas")
@@ -44,9 +47,8 @@ public class NinjaController {
     }
 
     // deletar ninja
-    @DeleteMapping("/deletarID")
-    public String deletarNinjaPorId(){
-        return "Ninja deletado por ID";
+    @DeleteMapping("/deletarID/{id}")
+    public void deletarNinjasPorId(@PathVariable Long id){
+        ninjaService.deletarNinjaPorId(id);
     }
-
 }
