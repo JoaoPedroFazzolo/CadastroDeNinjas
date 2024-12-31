@@ -10,11 +10,11 @@ import java.util.List;
 @RequestMapping("/ninjas")
 public class NinjaController {
 
-    private final DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration;
+
     private NinjaService ninjaService;
-    public NinjaController(NinjaService ninjaService, DataSourceTransactionManagerAutoConfiguration dataSourceTransactionManagerAutoConfiguration) {
+    public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
-        this.dataSourceTransactionManagerAutoConfiguration = dataSourceTransactionManagerAutoConfiguration;
+
     }
 
     @GetMapping("/boasvindas")
