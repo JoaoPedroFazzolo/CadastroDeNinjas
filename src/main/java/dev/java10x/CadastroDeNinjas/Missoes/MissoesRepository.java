@@ -11,6 +11,4 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public interface MissoesRepository extends JpaRepository<MissoesModel, Long> {
-
-}
+public interface MissoesRepository extends JpaRepository<MissoesModel, Long> {}

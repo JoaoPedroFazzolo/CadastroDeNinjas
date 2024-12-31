@@ -11,5 +11,4 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public interface NinjaRepository extends JpaRepository<NinjaModel, Long> {
-}
+public interface NinjaRepository extends JpaRepository<NinjaModel, Long> {}
